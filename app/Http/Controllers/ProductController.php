@@ -12,7 +12,7 @@ class ProductController extends Controller
     {
         $product = new Product();
 
-        if($request->has('action') && $request->get('action') === 'search') {
+        if ($request->has('action') && $request->get('action') === 'search') {
             $products = $product->filterAll($request);
         } else {
             $products = $product->orderBy('created_at', 'desc')->paginate(10);
@@ -35,7 +35,7 @@ class ProductController extends Controller
 
             $request->session()->flash('success', 'Registro gravado com sucesso!');
         } catch (\Exception $e) {
-            $request->session()->flash('error', 'Ocorreu um erro ao tentar gravar esses dados!');
+            $request->session()->flash->$e->getMessage('error', 'Ocorreu um erro ao tentar gravar esses dados!');
         }
 
         return redirect()->back();

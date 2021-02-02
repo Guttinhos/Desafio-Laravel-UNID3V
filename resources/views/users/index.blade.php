@@ -1,4 +1,9 @@
 @extends('layout.template')
 @section('main')
-    <h1>Eu sou o index do Users!</h1>
+
+    @include('users.partials.search')
+
+    @include('users.partials.registeruser')
+
+
 @endsection

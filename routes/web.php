@@ -1,7 +1,8 @@
 <?php
-
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\teste;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('product.index');
+
+    return redirect()->route('user.index');
 });
 
-Route::get('/user', [UserController::class, 'index']);
-
-Route::resource('product', ProductController::class);
-
+        Route::get('/unidev', [UserController::class, 'index']);
+        Route::get('/mail', [MailController::class, 'mail']);
+        Route::resource('user', UserController::class);
+        Route::resource('product', ProductController::class);  
